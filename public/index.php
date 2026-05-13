@@ -141,7 +141,9 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         <title>{$fila['nom']}</title>
     </head>
     <body>
+        
     <div class='contenedor'>
+    <a href='/'>&larr; Inici</a>
         <div class='vinilo'>
             <img src='{$fila['portadaAlbumFamoso']}' alt='Portada del album {$fila['portadaAlbumFamoso']}'>
             <audio class='audio'>
