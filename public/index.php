@@ -27,7 +27,7 @@ $app->get('/', function (Request $request, Response $response) {
     La teva cita setmanal amb la cultura global. Descobreix la història i l'impacte dels 
     artistes i grups que defineixen la nostra era.
     <p>
-    <h1> BTS - 방탄소년단 - Bulletproof Boy Scouts </h1>
+    <h1 >BTS - 방탄소년단 - Bulletproof Boy Scouts</h1>
     <p>
         BTS, també coneguts com a Bangtan Sonyeondan, és un grup sud-coreà format per set membres 
         (RM, Jin, Suga, J-Hope, Jimin, V i Jungkook) que ha redefinit el panorama musical global.

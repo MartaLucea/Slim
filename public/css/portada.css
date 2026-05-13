@@ -1,59 +1,86 @@
+
 @import url('paletaColores.css');
 
 body {
     font-family: sans-serif;
-    padding: o;
+    padding: 0;
     margin: 0;
+    background-color: #FDF6F0;
 }
+.header {
+    background-color: var(--secondary-color);
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+.header h1, .header h2, .header p {
+    color: #fff;
+}
+
 p, h1, h2 {
     text-align: center;
     max-width: 700px;
     margin: 0.75rem auto;
     line-height: 1.7;
+    color: #1a1a1a;
 }
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(3, 220px);
     justify-content: center;
     gap: 50px;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem;
 }
+
 .card:last-child {
     grid-column: 2;
 }
+
 .card {
     width: 220px;
-    height: 250px;
-    padding: 1.25rem 1rem;
+    height: auto;
+    padding: 1.25rem 1rem 1rem;
     text-align: center;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+    border: 1px solid #f0ece8;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
     background-color: #fff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .card:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-
+    transform: scale(1.06);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
+
 .card img {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
     margin: 0 auto 0.75rem;
+    border: 3px solid #f0ece8;
 }
+
 .card a {
     text-decoration: none;
     color: inherit;
 }
+
 .card .nombre {
     display: block;
-    font-weight: bold;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 14px;
     margin-top: 0.5rem;
-    color: inherit;
+    color: #1a1a1a;
 }
