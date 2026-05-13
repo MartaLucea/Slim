@@ -80,7 +80,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Página $id</title>
+        <title>{$fila['nom']}</title>
     </head>
     <body>
 
@@ -89,20 +89,14 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         <h1>{$fila['nom']}</h1>
         
         <div>
-            <strong>Nombre artístico:</strong> $nomArtistic
-        </div>
-
-        <div>
             <img src='{$fila['foto']}' alt='Foto de {$fila['nom']}'>
         </div>
+
+        <h3>$nomArtistic</h3>
         
-        <div>
-            <strong>Biografía:</strong>
-            <p>{$fila['biografia']}</p>
-        </div>
+        <p>{$fila['biografia']}</p>
 
         <div>
-            <strong>Video musical:</strong>
             <iframe width='560' height='315'
                 src='{$videoMusical}'
                 frameborder='0'
@@ -111,20 +105,18 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         </div>
 
         <div>
-            <strong>Nombre álbum:</strong> {$infoAlbum['nom']}
+            {$infoAlbum['nom']}
         </div>
 
         <div>
-            <strong>Año álbum:</strong> {$infoAlbum['any']}
+            {$infoAlbum['any']}
         </div>
 
         <div>
-            <strong>Portada álbum:</strong><br>
             <img src='{$fila['portadaAlbumFamoso']}' alt='Portada álbum'>
         </div>
 
         <div>
-            <strong>Playlist álbum famoso:</strong>
             <iframe width='560' height='315'
                 src='{$album}'
                 frameborder='0'
