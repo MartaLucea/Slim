@@ -1,4 +1,3 @@
 <header>
-    <h1>Spotlight Weekly</h1>
-    
+    <h1 class='center'>Spotlight Weekly</h1>
 </header>
