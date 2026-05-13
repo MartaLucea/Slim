@@ -10,7 +10,6 @@ $app = AppFactory::create();
 $app->get('/', function (Request $request, Response $response) {
 
     require_once __DIR__ . '/../includes/dbOpenConn.php';
-    require_once __DIR__ . '/../includes/header.php';
 
     $resultats = $db->query("SELECT * FROM artistes");
 
@@ -23,6 +22,7 @@ $app->get('/', function (Request $request, Response $response) {
         <title>Página Principal</title>
     </head>
     <body>
+    <h1 id='header'>Spotlight Weekly</h1>
     <p>
     La teva cita setmanal amb la cultura global. Descobreix la història i l'impacte dels 
     artistes i grups que defineixen la nostra era.
