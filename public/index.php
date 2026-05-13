@@ -21,9 +21,11 @@ $app->get('/', function (Request $request, Response $response) {
         <title>Página Principal</title>
     </head>
     <body>";
+    
 
     while ($fila = $resultats->fetchArray(SQLITE3_ASSOC)) {
-        $html .= "<a href='/" . $fila['id'] . "'>ID: " . $fila['id'] . " Nom: " . $fila['nom'] . "</a><br>";
+        
+        $html .= "<img src='{$fila['foto']}' alt='Foto de {$fila['nom']}'> <br> <br> <a href='/" . $fila['id'] . "'>ID: " . $fila['id'] . " Nom: " . $fila['nom'] . "</a><br>";
     }
 
     $html .= "</body></html>";
