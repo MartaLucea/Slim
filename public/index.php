@@ -80,6 +80,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel='stylesheet' href='/css/music.css'>
         <title>{$fila['nom']}</title>
     </head>
     <body>
