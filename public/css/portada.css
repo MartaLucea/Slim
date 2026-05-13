@@ -48,8 +48,8 @@ h1, h2 {
     text-align: center;
     border: 1px solid #f0ece8;
     border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-    background-color: #fff;
+    box-shadow: 0 4px 16px var(--accent-color);
+    background-color: var(--background-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;

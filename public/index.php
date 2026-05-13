@@ -57,17 +57,20 @@ $app->get('/', function (Request $request, Response $response) {
     }
 
     $html .= "</div></body></html>";
-
+    require_once __DIR__ . '/../includes/dbCloseConn.php';
     $response->getBody()->write($html);
     return $response->withHeader('Content-Type', 'text/html');
+    
 });
 
 $app->get('/{id}', function (Request $request, Response $response, array $args) {
-    $id = $args['id'];
+    $id = (int)$args['id'];
     require_once __DIR__ . '/../includes/dbOpenConn.php';
 
-    $resultats = $db->query("SELECT * FROM artistes WHERE id = $id");
-    $fila = $resultats->fetchArray(SQLITE3_ASSOC);
+    $stmt = $db->prepare("SELECT * FROM artistes WHERE id = ?");
+    $stmt->bindValue(1, (int)$id, SQLITE3_INTEGER);
+    $result = $stmt->execute();
+    $fila = $result->fetchArray(SQLITE3_ASSOC);
 
     // Procesar nombre artístico
     $nomArtistic = "";
@@ -104,7 +107,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
 
     $videoMusical = "https://www.youtube.com/embed/" . $videoId;
 
-    $musica;
+    $musica = '';
     switch ($id){
         case 1: 
             $musica = 'music/RM_Indigo.mp3';
@@ -113,7 +116,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
             $musica = 'music/Jin_Happy.mp3';
             break;
         case 3: 
-            $musica = 'music/AgustD_D-DAY';
+            $musica = 'music/AgustD_D-DAY.mp3';
             break;
         case 4: 
             $musica = 'music/J-Hope_Hope.mp3';
@@ -152,7 +155,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         </div>
         
         <div class='principal'>
-            <seccion class='tarjeta'>
+            <section class='tarjeta'>
                 <div class='img'>
                     <img src='{$fila['foto']}' alt='Foto de {$fila['nom']}'>
                 </div>
@@ -162,7 +165,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
                     <h1>{$fila['nom']}</h1>
                     <p>{$fila['biografia']}</p>
                 </div>
-            </seccion>
+            </section>
         
             <iframe width='560' height='315'
                 src='{$videoMusical}'
@@ -172,8 +175,8 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         </div>
         
 
-        <seccion class='album'>
-            <h1>Album</h1>
+        <section class='album'>
+            <h1>ALBUM</h1>
             <div id='info-album'>
                 <div class='info'>
                     <h2>{$infoAlbum['nom']}</h2>
@@ -189,13 +192,14 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
                 frameborder='0'
                 allowfullscreen>
             </iframe>
-        </seccion>
+        </section>
 
     </div>
 
     </body>
     </html>";
 
+    require_once __DIR__ . '/../includes/dbCloseConn.php';
     $response->getBody()->write($html);
     return $response->withHeader('Content-Type', 'text/html');
 });
