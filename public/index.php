@@ -104,6 +104,32 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
 
     $videoMusical = "https://www.youtube.com/embed/" . $videoId;
 
+    $musica;
+    switch ($id){
+        case 1: 
+            $musica = 'music/RM_Indigo.mp3';
+            break;
+        case 2: 
+            $musica = 'music/Jin_Happy.mp3';
+            break;
+        case 3: 
+            $musica = 'music/AgustD_D-DAY';
+            break;
+        case 4: 
+            $musica = 'music/J-Hope_Hope.mp3';
+            break;
+        case 5: 
+            $musica = 'music/Jimin_Face.mp3';
+            break;
+        case 6: 
+            $musica = 'music/V_Lay-Over.mp3';
+            break;
+        case 7: 
+            $musica = 'music/Jungkook_Golden.mp3';
+            break;
+
+    }
+
     // HTML
     $html = "<!DOCTYPE html>
     <html lang='ca'>
@@ -111,49 +137,59 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <link rel='stylesheet' href='/css/music.css'>
+        <script src='/js/vinilo.js'></script>
         <title>{$fila['nom']}</title>
     </head>
     <body>
-
-    <div>
-
-        <h1>{$fila['nom']}</h1>
         
-        <div>
-            <img src='{$fila['foto']}' alt='Foto de {$fila['nom']}'>
+    <div class='contenedor'>
+    <a href='/'>&larr; Inici</a>
+        <div class='vinilo'>
+            <img src='{$fila['portadaAlbumFamoso']}' alt='Portada del album {$fila['portadaAlbumFamoso']}'>
+            <audio class='audio'>
+                <source src=$musica type='audio/mpeg'>
+            </audio>
         </div>
-
-        <h3>$nomArtistic</h3>
         
-        <p>{$fila['biografia']}</p>
+        <div class='principal'>
+            <seccion class='tarjeta'>
+                <div class='img'>
+                    <img src='{$fila['foto']}' alt='Foto de {$fila['nom']}'>
+                </div>
 
-        <div>
+                <div class='tarjeta-contenido'>
+                    <h3>$nomArtistic</h3>
+                    <h1>{$fila['nom']}</h1>
+                    <p>{$fila['biografia']}</p>
+                </div>
+            </seccion>
+        
             <iframe width='560' height='315'
                 src='{$videoMusical}'
                 frameborder='0'
                 allowfullscreen>
             </iframe>
         </div>
+        
 
-        <div>
-            {$infoAlbum['nom']}
-        </div>
+        <seccion class='album'>
+            <h1>Album</h1>
+            <div id='info-album'>
+                <div class='info'>
+                    <h2>{$infoAlbum['nom']}</h2>
 
-        <div>
-            {$infoAlbum['any']}
-        </div>
-
-        <div>
-            <img src='{$fila['portadaAlbumFamoso']}' alt='Portada álbum'>
-        </div>
-
-        <div>
+                    <h3>{$infoAlbum['any']}</h3>
+                </div>
+                <div class='img'>
+                    <img src='{$fila['portadaAlbumFamoso']}' alt='Portada álbum'>
+                </div>
+            </div>
             <iframe width='560' height='315'
                 src='{$album}'
                 frameborder='0'
                 allowfullscreen>
             </iframe>
-        </div>
+        </seccion>
 
     </div>
 

@@ -1,5 +1,211 @@
-@import url('paletaColores.css');
+/* ESTILO MUSICAL PREMIUM 
+   Fuentes: DM Serif para elegancia, DM Sans para legibilidad.
+*/
 
-body{
-    background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-color: #f4f3ef;
+  --card-bg: #ffffff;
+  --accent-color: #1a1a1a;
+  --text-muted: #707070;
+  --radius: 20px;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* --- Reseteo y Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  line-height: 1.6;
+  padding: 3rem 1.5rem;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* --- BLOQUE PRINCIPAL (Video + Artista) --- */
+.principal {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* El video arriba como banner cinematográfico */
+.principal > iframe {
+  width: 100%;
+  aspect-ratio: 21 / 9; /* Formato panorámico */
+  border: none;
+  background: #000;
+  display: block;
+}
+
+/* Tarjeta del artista debajo del video */
+.tarjeta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2.5rem;
+  gap: 2.5rem;
+  text-align: left;
+}
+
+/* Imagen circular con efecto hover */
+.tarjeta .img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: 4px solid #fff;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.img:hover img {
+  transform: scale(1.1);
+}
+
+/* Textos del artista */
+.tarjeta h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.tarjeta h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  color: #444;
+  max-width: 500px;
+}
+
+/* --- BLOQUE DEL ÁLBUM --- */
+.album {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.album > h1 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.album > h1::after {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background: rgba(0,0,0,0.08);
+}
+
+#info-album {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.info h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.info h3 {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Portada del álbum con esquinas suaves */
+#info-album .img {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+}
+
+/* Video del álbum */
+.album > iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.vinilo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url('../img/vinilo.jpg');
+    background-size: cover;
+    background-position: center;
+    animation:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.vinilo.playing {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.vinilo img{
+    width: 30%;
+    border-radius: 50%;
+}
+
+a{
+    align-self:flex-start;
 }
