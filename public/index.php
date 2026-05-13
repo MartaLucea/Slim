@@ -173,7 +173,7 @@ $app->get('/{id}', function (Request $request, Response $response, array $args) 
         
 
         <seccion class='album'>
-            <h1>Album</h1>
+            <h1>ALBUM</h1>
             <div id='info-album'>
                 <div class='info'>
                     <h2>{$infoAlbum['nom']}</h2>
