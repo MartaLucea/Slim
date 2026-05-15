@@ -6,8 +6,7 @@ Projecte realitzat amb el framework **Slim 4** (PHP) com a exercici de la assign
 
 ## Vídeo de demostració
 
-[![](http://markdown-videos.deta.dev/youtube/evDf9sMuwMs)](https://youtu.be/evDf9sMuwMs)
----
+[![Video web artistes](https://img.youtube.com/vi/evDf9sMuwMs/maxresdefault.jpg)](https://youtu.be/evDf9sMuwMs)---
 
 ## Estructura del projecte
 
